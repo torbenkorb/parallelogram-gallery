@@ -35,7 +35,8 @@
         }
         svg {
             width: 100%;
-            height: 100%;
+            height: auto;
+            display: block;
         }
         .site {
             max-width: 1280px;
@@ -58,11 +59,17 @@
             margin-left: -8%;
         }
 
+        .gallery.svg {
+            margin: 0 6% 0 0;
+        }
+
+        .gallery.svg li {
+            flex: 0 0 39.3333333333%;
+            margin-right: -6%;
+        }
+
         .gallery.svg li + li {
             margin-left: 0;
-        }
-        .gallery.svg li {
-            flex: 0 0 33.3333333333%;
         }
 
 
@@ -76,72 +83,81 @@
 
     <div class="site">
 
-        <br>
-        <h2>CSS clip-path</h2>
-        <small>Full color JPG</small>
-        <ul class="gallery clipped">
-            <li>
-                <img src="img/solid.jpg">
-            </li>
-            <li>
-                <img src="img/solid-2.jpg">
-            </li>
-            <li>
-                <img src="img/solid.jpg">
-            </li>
-        </ul>
-        <br>
-        <h2>Transparent PNG</h2>
-        <small>PNG with transparent edges</small>
-        <ul class="gallery">
-            <li>
-                <img src="img/strong-transparent.png">
-            </li>
-            <li>
-                <img src="img/strong-transparent-2.png">
-            </li>
-            <li>
-                <img src="img/strong-transparent.png">
-            </li>
-        </ul>
 
-        <br>
+        <section>
 
-        <ul class="gallery svg" style="display: none">
-            <li>
-                <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <g>
-                      <clipPath id="clipPolygon">
-                        <polygon points="25,0 0,100 75,100 100,0"
-            </li> />
-                        </polygon>
-                      </clipPath>
-                    </g>
-                      <image clip-path="url(#clipPolygon)" height="100%" width="100%" xlink:href="img/solid.jpg" />
-                </svg>
-            <li>
-                <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <g>
-                      <clipPath id="clipPolygon">
-                        <polygon points="25,0 0,100 75,100 100,0" />
-                        </polygon>
-                      </clipPath>
-                    </g>
-                      <image clip-path="url(#clipPolygon)" height="100%" width="100%" xlink:href="img/solid-2.jpg" />
-                </svg>
-            </li>
-            <li>
-                <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <g>
-                      <clipPath id="clipPolygon">
-                        <polygon points="25,0 0,100 75,100 100,0" />
-                        </polygon>
-                      </clipPath>
-                    </g>
-                      <image clip-path="url(#clipPolygon)" height="100%" width="100%" xlink:href="img/solid.jpg" />
-                </svg>
-            </li>
-        </ul>
+            <h2>SVG Mask</h2>
+            <small>Clipping rectangle in SVG</small>
+
+
+            <ul class="gallery svg">
+                <li>
+                    <svg viewBox="0 0 800 450" width="800" height="450" preserveAspectRatio="xMidYMin slice">
+                        <defs>
+                            <mask id="polygonMask" x="0" y="0">
+                                <rect class="skew" fill="#ffffff" y="0" x="21%" width="79%" height="450" transform="skewX(-20)"></rect>
+                            </mask>
+                        </defs>
+                        <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://via.placeholder.com/800x450.jpg" y="0" mask="url('#polygonMask')" x="0" width="800" height="450" preserveAspectRatio="xMidYMid slice"></image></svg>
+                </li>
+                <li>
+                    <svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMin slice">
+                        <defs>
+                            <mask id="polygonMask" x="0" y="0">
+                                <rect class="skew" fill="#ffffff" y="0" x="21%" width="79%" height="450" transform="skewX(-20)"></rect>
+                            </mask>
+                        </defs>
+                        <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://via.placeholder.com/800x450.jpg" y="0" mask="url('#polygonMask')" x="0" width="800" height="450" preserveAspectRatio="xMidYMid slice"></image></svg>
+                </li>
+                <li>
+                    <svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMin slice">
+                        <defs>
+                            <mask id="polygonMask" x="0" y="0">
+                                <rect class="skew" fill="#ffffff" y="0" x="21%" width="79%" height="450" transform="skewX(-20)"></rect>
+                            </mask>
+                        </defs>
+                        <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://via.placeholder.com/800x450.jpg" y="0" mask="url('#polygonMask')" x="0" width="800" height="450" preserveAspectRatio="xMidYMid slice"></image></svg>
+                </li>
+            </ul>
+        </section>
+
+
+        <section>
+            <h2>CSS clip-path</h2>
+            <small>Full color JPG</small>
+            <ul class="gallery clipped">
+                <li>
+                    <img src="http://via.placeholder.com/800x450.jpg">
+                </li>
+                <li>
+                    <img src="http://via.placeholder.com/800x450.jpg">
+                </li>
+                <li>
+                    <img src="http://via.placeholder.com/800x450">
+                </li>
+            </ul>
+        </section>
+
+
+        <section>
+            <h2>Transparent PNG</h2>
+            <small>PNG with transparent edges</small>
+            <ul class="gallery">
+                <li>
+                    <img src="img/strong-transparent.png">
+                </li>
+                <li>
+                    <img src="img/strong-transparent-2.png">
+                </li>
+                <li>
+                    <img src="img/strong-transparent.png">
+                </li>
+            </ul>
+        </section>
+
+
+
+
 
     </div>
 
